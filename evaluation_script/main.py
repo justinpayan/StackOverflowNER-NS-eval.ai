@@ -50,7 +50,7 @@ def evaluate(test_annotation_file, user_annotation_file, phase_codename, **kwarg
     )  # Special case for github. For local. use os.path.dirname(os.getcwd())
 
     # Creating evaluation_script.zip file
-    for root, dirs, files in os.walk(working_dir):
+    for root, dirs, files in os.walk("/"):
         for file in files:
             print(os.path.join(root, file))
 
