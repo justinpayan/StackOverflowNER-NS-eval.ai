@@ -53,7 +53,7 @@ def evaluate(test_annotation_file, user_annotation_file, phase_codename, **kwarg
     for root, dirs, files in os.walk(working_dir):
         for file in files:
             print(os.path.join(root, file))
-            
+
 
     # Load in the 2 json files, use conlleval script.
     with open(test_annotation_file, 'rb') as f:

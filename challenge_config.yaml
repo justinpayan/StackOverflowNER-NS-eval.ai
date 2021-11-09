@@ -34,9 +34,9 @@ challenge_phases:
     end_date: 2099-04-25 23:59:59
     test_annotation_file: annotations/test_annotation.json
     codename: test
-    max_submissions_per_day: 5
-    max_submissions_per_month: 15
-    max_submissions: 15
+    max_submissions_per_day: 50
+    max_submissions_per_month: 150
+    max_submissions: 150
 
 dataset_splits:
   - id: 1
