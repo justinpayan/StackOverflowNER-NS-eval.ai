@@ -74,6 +74,7 @@ def evaluate(test_annotation_file, user_annotation_file, phase_codename, **kwarg
     # Collect the fscores across all 5 test episodes.
     fscores = []
     for i in range(1, 6):
+        print("evaluating episode %d" % i)
         with open("conll_input_ep_%d" % i, 'w') as f:
             ep_name = "episode%d" % i
             ids = set([x["id"] for x in user_annots[ep_name]])
@@ -90,12 +91,13 @@ def evaluate(test_annotation_file, user_annotation_file, phase_codename, **kwarg
                     f.write("%s %s %s\n" % (orig, gt, pred))
                 f.write("\n")
 
-        os.system('%s/evaluation_script/conlleval.pl < conll_input_ep_%d > conll_output_ep_%d' % (os.getcwd(), i, i))
+        os.system('%s/challenge_data/challenge_1/conlleval.pl < conll_input_ep_%d > conll_output_ep_%d' % (os.getcwd(), i, i))
 
         # Read the conll output into an Fscore for this episode.
         def get_fscore(fname):
             with open(fname, 'r') as f:
                 for l in f:
+                    print(l)
                     l = l.strip()
                     if l.startswith("accuracy"):
                         fscore = float(re.search("FB1:\s*(\d+\.\d+)", l).group(1))
