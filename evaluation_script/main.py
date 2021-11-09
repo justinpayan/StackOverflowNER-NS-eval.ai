@@ -45,6 +45,16 @@ def evaluate(test_annotation_file, user_annotation_file, phase_codename, **kwarg
         }
     """
 
+    working_dir = (
+        os.getcwd()
+    )  # Special case for github. For local. use os.path.dirname(os.getcwd())
+
+    # Creating evaluation_script.zip file
+    for root, dirs, files in os.walk(working_dir):
+        for file in files:
+            print(os.path.join(root, file))
+            
+
     # Load in the 2 json files, use conlleval script.
     with open(test_annotation_file, 'rb') as f:
         test_annots = json.load(f)
