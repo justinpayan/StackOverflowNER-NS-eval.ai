@@ -1,1 +1,23 @@
-<p>Submit any blank file here to see a random number generated for your submission. If you get lucky, you might reach the top of the leaderboard.</p>
+<p>This challenge involves the "skewed" episodes from the paper <a href="https://arxiv.org/abs/2110.14694">Towards Realistic Single-Task Continuous Learning Research for NER</a>. You should train a model on each of the 5 training episodes in succession, without revisiting prior episodes. You must evaluate the final model on all 5 test episodes. You will upload a submission file in json format containing your predicted tags. This should contain a dictionary mapping the five episode names ("episode1", "episode2", etc) to lists of entries. Each entry in the episode will contain an id, the original sentence, and your predicted tags. Here is an example with just 1 sentence per episode, for the first 2 episodes:</p>
+
+  <code>
+    {
+      "episode1": [
+        {
+          "id": 27613,
+          "sentence": "check if there exist blank you dont want(blankHeight=(ListViewHeight-count*rowHeight)>0)",
+          "tag_sequence": "O O O O O O O B-Code_Block",
+        }
+      ],
+      "episode2": [
+        {
+          "id": 27526,
+          "sentence": "Try with android.R.layout.simple_list_item_multiple_choice .",
+          "tag_sequence": "O O B-Library_Variable O",
+        }
+      ]
+    }
+  </code>
+
+<p>It is important that your submission has all 5 episodes, and the list of ids per episode must match the ground truth test data. In addition,
+the "sentence" field must be the same as the test data's "sentence" field for each id.</p>
