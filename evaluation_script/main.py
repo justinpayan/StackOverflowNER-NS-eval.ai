@@ -91,7 +91,7 @@ def evaluate(test_annotation_file, user_annotation_file, phase_codename, **kwarg
                     f.write("%s %s %s\n" % (orig, gt, pred))
                 f.write("\n")
 
-        os.system('%s/evaluation_script/conlleval.pl < conll_input_ep_%d > conll_output_ep_%d' % (os.getcwd(), i, i))
+        os.system('%s/conlleval.pl < conll_input_ep_%d > conll_output_ep_%d' % (os.getcwd(), i, i))
 
         with open("conll_input_ep_%d" % i) as f:
             print(f.readlines())
